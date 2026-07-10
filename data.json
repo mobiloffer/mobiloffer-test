@@ -1,0 +1,13 @@
+{
+  "lastUpdated": "2026-07-10",
+  "phones": [
+    {"name":"iPhone 13", "specs":"128GB · Grado A", "type":"iphone", "brand":"apple", "condition":"refurb", "grade":"A", "retail":449, "offer":349, "store":"Amazon"},
+    {"name":"iPhone 12", "specs":"64GB · Grado B", "type":"iphone", "brand":"apple", "condition":"refurb", "grade":"B", "retail":320, "offer":229, "store":"El Corte Inglés"},
+    {"name":"iPhone SE (2022)", "specs":"64GB · Nuevo", "type":"iphone", "brand":"apple", "condition":"new", "grade":"new", "retail":349, "offer":279, "store":"Fnac"},
+    {"name":"Samsung Galaxy S22", "specs":"128GB · Grado A", "type":"android", "brand":"samsung", "condition":"refurb", "grade":"A", "retail":420, "offer":329, "store":"Amazon"},
+    {"name":"Samsung Galaxy A54", "specs":"128GB · Nuevo", "type":"android", "brand":"samsung", "condition":"new", "grade":"new", "retail":349, "offer":299, "store":"MediaMarkt", "official":{"store":"Samsung.com", "price":329}},
+    {"name":"Google Pixel 7", "specs":"128GB · Grado B", "type":"android", "brand":"google", "condition":"refurb", "grade":"B", "retail":380, "offer":289, "store":"PcComponentes"},
+    {"name":"iPhone 11", "specs":"64GB · Grado C", "type":"iphone", "brand":"apple", "condition":"refurb", "grade":"C", "retail":280, "offer":199, "store":"El Corte Inglés"},
+    {"name":"Samsung Galaxy S21 FE", "specs":"128GB · Grado A", "type":"android", "brand":"samsung", "condition":"refurb", "grade":"A", "retail":340, "offer":269, "store":"Amazon"}
+  ]
+}
