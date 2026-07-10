@@ -5,36 +5,40 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MobilOffer — Móviles reacondicionados al mejor precio</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;800&display=swap');
 
   :root{
-    --graphite: #F1F2F4;
-    --surface: #FFFFFF;
-    --surface-2: #E9EBEE;
-    --silver: #22262C;
-    --silver-dim: #6B7280;
+    --graphite: #F3F0E8;
+    --surface: #FFFDF7;
+    --surface-2: #EAE4D6;
+    --silver: #1C1B18;
+    --silver-dim: #6B665A;
     --gold: #A9791E;
     --gold-hover: #8A6519;
-    --line: #E1E4E8;
-    --good: #178A45;
-    --ink: #1A1D22;
-    --cta-text: #FFFFFF;
-    --header-bg: rgba(241,242,244,0.85);
+    --line: #1C1B18;
+    --good: #146B36;
+    --ink: #1C1B18;
+    --cta-text: #FFFDF7;
+    --header-bg: #F3F0E8;
+    --red: #C81E2C;
+    --red-dark: #97141F;
   }
 
   html[data-theme="dark"]{
-    --graphite: #14171C;
-    --surface: #1E232B;
-    --surface-2: #262C36;
-    --silver: #C9D0D6;
-    --silver-dim: #88919B;
-    --gold: #D4AF37;
-    --gold-hover: #E8C158;
-    --line: #333B47;
+    --graphite: #17140F;
+    --surface: #211C15;
+    --surface-2: #2B241A;
+    --silver: #F3EEE3;
+    --silver-dim: #A79E8C;
+    --gold: #E8B84B;
+    --gold-hover: #F3CD73;
+    --line: #F3EEE3;
     --good: #4ADE80;
-    --ink: #F2F4F6;
-    --cta-text: #14171C;
-    --header-bg: rgba(20,23,28,0.92);
+    --ink: #FBF8F0;
+    --cta-text: #17140F;
+    --header-bg: #17140F;
+    --red: #FF4D5E;
+    --red-dark: #E8384A;
   }
 
   html{ transition: background 0.2s ease; }
@@ -43,19 +47,18 @@
   *{box-sizing:border-box; margin:0; padding:0;}
 
   body{
-    background: var(--graphite);
+    background:
+      radial-gradient(rgba(28,27,24,0.12) 0.7px, transparent 0.7px) 0 0 / 13px 13px,
+      var(--graphite);
     color: var(--silver);
     font-family: 'Inter', sans-serif;
     line-height: 1.5;
     position: relative;
   }
-
-  #bg-canvas{
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    z-index: 0;
-    opacity: 0.4;
+  html[data-theme="dark"] body{
+    background:
+      radial-gradient(rgba(243,238,227,0.09) 0.7px, transparent 0.7px) 0 0 / 13px 13px,
+      var(--graphite);
   }
 
   header, .hero, .filters, .grid, footer, #catalogo, #store-filters{
@@ -70,63 +73,79 @@
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding: 20px 6vw;
-    border-bottom: 1px solid var(--line);
+    padding: 18px 6vw;
+    border-bottom: 3px solid var(--line);
     position: sticky;
     top: 0;
     background: var(--header-bg);
-    backdrop-filter: blur(8px);
     z-index: 10;
   }
   .logo{
-    font-family:'Space Grotesk', sans-serif;
-    font-weight:700;
-    font-size: 1.4rem;
-    letter-spacing: -0.02em;
-    color: var(--silver);
+    font-family:'Anton', sans-serif;
+    font-weight:400;
+    font-size: 1.6rem;
+    letter-spacing: 0.01em;
+    color: var(--ink);
+    text-transform: uppercase;
   }
-  .logo span{color: var(--gold);}
+  .logo span{
+    background: var(--red);
+    color: #FFFDF7;
+    padding: 2px 8px;
+    display: inline-block;
+    transform: rotate(-2deg);
+    margin-left: 2px;
+  }
   nav a{
     font-size: 0.85rem;
     color: var(--silver-dim);
     margin-left: 28px;
+    font-weight: 600;
   }
   nav{display:flex; align-items:center;}
 
   /* ---------- HERO ---------- */
   .hero{
-    padding: 8vh 6vw 6vh;
-    max-width: 780px;
+    padding: 7vh 6vw 5vh;
+    max-width: 820px;
+    position: relative;
   }
   .eyebrow{
     font-family:'JetBrains Mono', monospace;
-    font-size: 0.75rem;
-    color: var(--gold);
+    font-size: 0.72rem;
+    color: var(--surface);
+    background: var(--ink);
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    margin-bottom: 18px;
-    display:block;
+    margin-bottom: 22px;
+    display:inline-block;
+    padding: 5px 12px;
+    transform: rotate(-1.5deg);
   }
   h1{
-    font-family:'Space Grotesk', sans-serif;
-    font-size: clamp(2.1rem, 5.5vw, 3.4rem);
-    font-weight: 700;
-    line-height: 1.08;
-    letter-spacing: -0.02em;
+    font-family:'Anton', sans-serif;
+    font-weight: 400;
+    font-size: clamp(2.3rem, 7vw, 4.2rem);
+    line-height: 0.98;
+    letter-spacing: 0.005em;
+    text-transform: uppercase;
     color: var(--ink);
   }
+  h1 .accent{
+    color: var(--red);
+  }
   .hero p{
-    margin-top: 20px;
+    margin-top: 22px;
     font-size: 1.05rem;
     color: var(--silver-dim);
     max-width: 560px;
   }
 
-  /* signature: grading meter */
+  /* signature: grading meter, styled as inspection stamps */
   .grade-key{
     display:flex;
-    gap: 14px;
-    margin-top: 40px;
+    gap: 12px;
+    margin-top: 36px;
     flex-wrap: wrap;
   }
   .grade-pill{
@@ -134,16 +153,19 @@
     align-items:center;
     gap:8px;
     font-family:'JetBrains Mono', monospace;
-    font-size: 0.75rem;
-    border: 1px solid var(--line);
-    padding: 8px 14px;
-    border-radius: 100px;
-    color: var(--silver-dim);
+    font-size: 0.74rem;
+    border: 2px solid var(--line);
+    padding: 7px 13px;
+    color: var(--ink);
+    font-weight: 600;
   }
-  .dot{width:8px; height:8px; border-radius:50%;}
-  .dot.a{background:#4ADE80;}
-  .dot.b{background:#D4AF37;}
-  .dot.c{background:#E8834A;}
+  .dot{width:9px; height:9px; border-radius:50%;}
+  .dot.a{background:#146B36;}
+  .dot.b{background:#A9791E;}
+  .dot.c{background:#C2410C;}
+  html[data-theme="dark"] .dot.a{background:#4ADE80;}
+  html[data-theme="dark"] .dot.b{background:#E8B84B;}
+  html[data-theme="dark"] .dot.c{background:#FF8A5C;}
 
   /* ---------- FILTER BAR ---------- */
   .filters{
@@ -154,18 +176,19 @@
   }
   .filter-btn{
     font-family:'JetBrains Mono', monospace;
-    font-size: 0.78rem;
+    font-size: 0.76rem;
     background: var(--surface);
-    border: 1px solid var(--line);
-    color: var(--silver-dim);
-    padding: 9px 16px;
-    border-radius: 8px;
+    border: 2px solid var(--line);
+    color: var(--ink);
+    padding: 9px 15px;
+    font-weight: 600;
     cursor:pointer;
     transition: all 0.15s ease;
   }
   .filter-btn:hover, .filter-btn.active{
-    border-color: var(--gold);
-    color: var(--gold);
+    background: var(--ink);
+    color: var(--surface);
+    border-color: var(--ink);
   }
 
   /* ---------- GRID ---------- */
@@ -178,12 +201,11 @@
 
   .card{
     background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: 14px;
-    padding: 22px;
+    border: 2.5px solid var(--line);
+    padding: 20px;
     display:flex;
     flex-direction:column;
-    transition: border-color 0.15s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease, box-shadow 0.15s ease;
     opacity: 0;
     transform: translateY(16px);
   }
@@ -192,13 +214,15 @@
     transform: translateY(0);
   }
   .card:hover{
-    border-color: var(--silver-dim);
+    box-shadow: 5px 5px 0 var(--ink);
     transform: translateY(-2px);
+  }
+  html[data-theme="dark"] .card:hover{
+    box-shadow: 5px 5px 0 var(--gold);
   }
 
   @media (prefers-reduced-motion: reduce){
     .card{ transition: none; opacity: 1; transform: none; }
-    #bg-canvas{ display: none; }
   }
 
   .card-top{
@@ -210,21 +234,20 @@
 
   .grade-badge{
     font-family:'JetBrains Mono', monospace;
-    font-size: 0.68rem;
+    font-size: 0.66rem;
     font-weight: 700;
-    padding: 4px 10px;
-    border-radius: 100px;
+    padding: 4px 9px;
     letter-spacing: 0.04em;
   }
-  .grade-badge.A{background: rgba(23,138,69,0.1); color:#178A45; border:1px solid rgba(23,138,69,0.3);}
-  .grade-badge.B{background: rgba(169,121,30,0.1); color:#A9791E; border:1px solid rgba(169,121,30,0.3);}
-  .grade-badge.C{background: rgba(194,65,12,0.1); color:#C2410C; border:1px solid rgba(194,65,12,0.3);}
-  .grade-badge.new{background: rgba(75,85,99,0.1); color:#4B5563; border:1px solid rgba(75,85,99,0.3);}
+  .grade-badge.A{background: #146B36; color:#FFFDF7; border:2px solid #146B36;}
+  .grade-badge.B{background: #A9791E; color:#FFFDF7; border:2px solid #A9791E;}
+  .grade-badge.C{background: #C2410C; color:#FFFDF7; border:2px solid #C2410C;}
+  .grade-badge.new{background: var(--ink); color:var(--surface); border:2px solid var(--ink);}
 
-  html[data-theme="dark"] .grade-badge.A{background: rgba(74,222,128,0.12); color:#4ADE80; border:1px solid rgba(74,222,128,0.3);}
-  html[data-theme="dark"] .grade-badge.B{background: rgba(212,175,55,0.12); color:#D4AF37; border:1px solid rgba(212,175,55,0.3);}
-  html[data-theme="dark"] .grade-badge.C{background: rgba(232,131,74,0.12); color:#E8834A; border:1px solid rgba(232,131,74,0.3);}
-  html[data-theme="dark"] .grade-badge.new{background: rgba(201,208,214,0.12); color:#C9D0D6; border:1px solid rgba(201,208,214,0.3);}
+  html[data-theme="dark"] .grade-badge.A{background: #1E7A45; color:#0D1A10;}
+  html[data-theme="dark"] .grade-badge.B{background: #E8B84B; color:#1C1B18;}
+  html[data-theme="dark"] .grade-badge.C{background: #FF8A5C; color:#1C1B18;}
+  html[data-theme="dark"] .grade-badge.new{background: var(--ink); color:var(--surface); border:2px solid var(--line);}
 
   .store-tag{
     font-size: 0.68rem;
@@ -235,7 +258,7 @@
   .phone-icon{
     width: 44px;
     height: 44px;
-    border-radius: 10px;
+    border: 2px solid var(--line);
     background: var(--surface-2);
     display:flex;
     align-items:center;
@@ -252,7 +275,7 @@
     width: 100%;
     height: 120px;
     object-fit: cover;
-    border-radius: 10px;
+    border: 2px solid var(--line);
     display: block;
     background: var(--surface-2);
   }
@@ -265,9 +288,9 @@
   }
 
   .card h3{
-    font-family:'Space Grotesk', sans-serif;
-    font-size: 1.05rem;
-    font-weight: 600;
+    font-family:'Inter', sans-serif;
+    font-size: 1.02rem;
+    font-weight: 800;
     color: var(--ink);
     margin-bottom: 4px;
   }
@@ -280,13 +303,13 @@
   .price-row{
     margin-top: auto;
     padding-top: 16px;
-    border-top: 1px dashed var(--line);
+    border-top: 2px dashed var(--silver-dim);
   }
   .price-line{
     display:flex;
-    align-items:baseline;
-    gap: 10px;
-    margin-bottom: 4px;
+    align-items:center;
+    gap: 12px;
+    margin-bottom: 6px;
   }
   .retail{
     font-family:'JetBrains Mono', monospace;
@@ -295,30 +318,42 @@
     text-decoration: line-through;
   }
   .offer{
-    font-family:'JetBrains Mono', monospace;
+    font-family:'Anton', sans-serif;
+    font-weight: 400;
     font-size: 1.5rem;
-    font-weight: 700;
+    color: var(--surface);
+    background: var(--red);
+    display: inline-block;
+    padding: 3px 10px;
+    transform: rotate(-3deg);
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  html[data-theme="dark"] .offer{
     color: var(--ink);
+    box-shadow: 3px 3px 0 var(--gold);
   }
   .savings{
     font-size: 0.72rem;
     color: var(--good);
     font-family:'JetBrains Mono', monospace;
+    font-weight: 700;
     margin-bottom: 16px;
   }
 
   .cta{
     display:block;
     text-align:center;
-    background: var(--gold);
-    color: var(--cta-text);
-    font-weight: 600;
-    font-size: 0.85rem;
+    background: var(--ink);
+    color: var(--surface);
+    font-weight: 800;
+    font-size: 0.82rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
     padding: 12px;
-    border-radius: 8px;
-    transition: background 0.15s ease;
+    border: 2px solid var(--ink);
+    transition: background 0.15s ease, color 0.15s ease;
   }
-  .cta:hover{background: var(--gold-hover);}
+  .cta:hover{background: var(--surface); color: var(--ink);}
 
   .official-line{
     font-size: 0.72rem;
@@ -338,7 +373,7 @@
   /* ---------- FOOTER ---------- */
   footer{
     padding: 40px 6vw;
-    border-top: 1px solid var(--line);
+    border-top: 3px solid var(--line);
     font-size: 0.75rem;
     color: var(--silver-dim);
     display:flex;
@@ -363,8 +398,6 @@
 </style>
 </head>
 <body>
-<canvas id="bg-canvas"></canvas>
-
 
 <header>
   <div class="logo">Mobil<span>Offer</span></div>
@@ -377,7 +410,7 @@
 
 <section class="hero">
   <span class="eyebrow">Comparador de móviles reacondicionados</span>
-  <h1>El mismo móvil, sin pagar de más.</h1>
+  <h1>El mismo móvil, <span class="accent">sin pagar de más</span>.</h1>
   <p>Rastreamos Amazon, MediaMarkt, El Corte Inglés, PcComponentes y Fnac para encontrarte el mejor precio en iPhones y Android, nuevos o reacondicionados. Tú compras directo en la tienda de siempre — nosotros solo te ahorramos la búsqueda.</p>
 
   <div class="grade-key">
@@ -388,7 +421,7 @@
   <p id="last-updated" style="margin-top: 16px; font-size: 0.72rem; font-family: 'JetBrains Mono', monospace; color: var(--silver-dim);"></p>
 </section>
 
-<div style="margin: 0 6vw 30px; padding: 14px 18px; border: 1px dashed var(--line); border-radius: 10px; font-family:'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--silver-dim); text-align:center;">
+<div style="margin: 0 6vw 30px; padding: 14px 18px; border: 2px dashed var(--silver-dim); font-family:'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--silver-dim); text-align:center;">
   ESPACIO PUBLICITARIO — aquí iría un bloque de Google AdSense (728×90 en escritorio, 320×50 en móvil)
 </div>
 
@@ -448,6 +481,12 @@
     {name:"Google Pixel 7", specs:"128GB · Grado B", type:"android", brand:"google", condition:"refurb", grade:"B", retail:380, offer:289, store:"PcComponentes"},
     {name:"iPhone 11", specs:"64GB · Grado C", type:"iphone", brand:"apple", condition:"refurb", grade:"C", retail:280, offer:199, store:"El Corte Inglés"},
     {name:"Samsung Galaxy S21 FE", specs:"128GB · Grado A", type:"android", brand:"samsung", condition:"refurb", grade:"A", retail:340, offer:269, store:"Amazon"},
+    {name:"iPhone 14", specs:"128GB · Grado A", type:"iphone", brand:"apple", condition:"refurb", grade:"A", retail:499, offer:399, store:"Amazon"},
+    {name:"iPhone XR", specs:"64GB · Grado C", type:"iphone", brand:"apple", condition:"refurb", grade:"C", retail:220, offer:149, store:"El Corte Inglés"},
+    {name:"Samsung Galaxy S23", specs:"128GB · Grado B", type:"android", brand:"samsung", condition:"refurb", grade:"B", retail:450, offer:359, store:"MediaMarkt"},
+    {name:"Samsung Galaxy A34", specs:"128GB · Nuevo", type:"android", brand:"samsung", condition:"new", grade:"new", retail:280, offer:239, store:"Fnac"},
+    {name:"Google Pixel 6a", specs:"128GB · Grado B", type:"android", brand:"google", condition:"refurb", grade:"B", retail:300, offer:219, store:"PcComponentes"},
+    {name:"Google Pixel 8", specs:"128GB · Grado A", type:"android", brand:"google", condition:"refurb", grade:"A", retail:470, offer:389, store:"Amazon"},
   ];
 
   let phones = fallbackPhones;
@@ -598,70 +637,8 @@
     });
   });
 
-  // --- Fondo animado: red de puntos monocromática, evocando señal/conectividad ---
-  const canvas = document.getElementById('bg-canvas');
-  const ctx = canvas.getContext('2d');
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let dots = [];
-
-  function resizeCanvas(){
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
-
-  function initDots(){
-    const count = Math.floor((canvas.width * canvas.height) / 22000);
-    dots = Array.from({length: count}, () => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      vx: (Math.random() - 0.5) * 0.15,
-      vy: (Math.random() - 0.5) * 0.15,
-    }));
-  }
-
   let currentTheme = 'light';
-
-  function drawFrame(){
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    const maxDist = 130;
-    const dotColor = currentTheme === 'dark' ? "201, 208, 214" : "34, 38, 44";
-    const dotBaseAlpha = currentTheme === 'dark' ? 0.35 : 0.25;
-    const lineBaseAlpha = currentTheme === 'dark' ? 0.12 : 0.09;
-
-    for(let i = 0; i < dots.length; i++){
-      const a = dots[i];
-      a.x += a.vx;
-      a.y += a.vy;
-      if(a.x < 0 || a.x > canvas.width) a.vx *= -1;
-      if(a.y < 0 || a.y > canvas.height) a.vy *= -1;
-
-      for(let j = i + 1; j < dots.length; j++){
-        const b = dots[j];
-        const dx = a.x - b.x, dy = a.y - b.y;
-        const dist = Math.sqrt(dx*dx + dy*dy);
-        if(dist < maxDist){
-          ctx.strokeStyle = `rgba(${dotColor}, ${lineBaseAlpha * (1 - dist / maxDist)})`;
-          ctx.lineWidth = 1;
-          ctx.beginPath();
-          ctx.moveTo(a.x, a.y);
-          ctx.lineTo(b.x, b.y);
-          ctx.stroke();
-        }
-      }
-
-      ctx.fillStyle = `rgba(${dotColor}, ${dotBaseAlpha})`;
-      ctx.beginPath();
-      ctx.arc(a.x, a.y, 1.4, 0, Math.PI * 2);
-      ctx.fill();
-    }
-
-    if(!prefersReducedMotion) requestAnimationFrame(drawFrame);
-  }
-
-  resizeCanvas();
-  initDots();
-  drawFrame();
-  window.addEventListener('resize', () => { resizeCanvas(); initDots(); if(prefersReducedMotion) drawFrame(); });
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // --- Revelación de tarjetas al hacer scroll + conteo del precio ---
   function animateCount(el, target){
@@ -701,7 +678,6 @@
     document.documentElement.setAttribute('data-theme', next);
     currentTheme = next;
     document.getElementById('theme-toggle').textContent = next === 'dark' ? '☀️ Claro' : '🌙 Oscuro';
-    if(prefersReducedMotion) drawFrame();
     applyFilters();
   });
 

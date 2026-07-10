@@ -8,6 +8,12 @@
     {"name":"Samsung Galaxy A54", "specs":"128GB · Nuevo", "type":"android", "brand":"samsung", "condition":"new", "grade":"new", "retail":349, "offer":299, "store":"MediaMarkt", "official":{"store":"Samsung.com", "price":329}},
     {"name":"Google Pixel 7", "specs":"128GB · Grado B", "type":"android", "brand":"google", "condition":"refurb", "grade":"B", "retail":380, "offer":289, "store":"PcComponentes"},
     {"name":"iPhone 11", "specs":"64GB · Grado C", "type":"iphone", "brand":"apple", "condition":"refurb", "grade":"C", "retail":280, "offer":199, "store":"El Corte Inglés"},
-    {"name":"Samsung Galaxy S21 FE", "specs":"128GB · Grado A", "type":"android", "brand":"samsung", "condition":"refurb", "grade":"A", "retail":340, "offer":269, "store":"Amazon"}
+    {"name":"Samsung Galaxy S21 FE", "specs":"128GB · Grado A", "type":"android", "brand":"samsung", "condition":"refurb", "grade":"A", "retail":340, "offer":269, "store":"Amazon"},
+    {"name":"iPhone 14", "specs":"128GB · Grado A", "type":"iphone", "brand":"apple", "condition":"refurb", "grade":"A", "retail":499, "offer":399, "store":"Amazon"},
+    {"name":"iPhone XR", "specs":"64GB · Grado C", "type":"iphone", "brand":"apple", "condition":"refurb", "grade":"C", "retail":220, "offer":149, "store":"El Corte Inglés"},
+    {"name":"Samsung Galaxy S23", "specs":"128GB · Grado B", "type":"android", "brand":"samsung", "condition":"refurb", "grade":"B", "retail":450, "offer":359, "store":"MediaMarkt"},
+    {"name":"Samsung Galaxy A34", "specs":"128GB · Nuevo", "type":"android", "brand":"samsung", "condition":"new", "grade":"new", "retail":280, "offer":239, "store":"Fnac"},
+    {"name":"Google Pixel 6a", "specs":"128GB · Grado B", "type":"android", "brand":"google", "condition":"refurb", "grade":"B", "retail":300, "offer":219, "store":"PcComponentes"},
+    {"name":"Google Pixel 8", "specs":"128GB · Grado A", "type":"android", "brand":"google", "condition":"refurb", "grade":"A", "retail":470, "offer":389, "store":"Amazon"}
   ]
 }
