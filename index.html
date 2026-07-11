@@ -717,6 +717,31 @@
 
   const grid = document.getElementById('grid');
 
+  // Para tiendas sin enlace de afiliado verificado todavía, generamos un enlace de
+  // búsqueda funcional de verdad — directo cuando conocemos el patrón de esa tienda,
+  // o una búsqueda de Google filtrada a esa tienda cuando no lo tenemos confirmado.
+  const storeDomain = {
+    "Amazon": "amazon.es",
+    "MediaMarkt": "mediamarkt.es",
+    "El Corte Inglés": "elcorteingles.es",
+    "PcComponentes": "pccomponentes.com",
+    "Fnac": "fnac.es",
+    "Back Market": "backmarket.es",
+    "Phone House": "phonehouse.es",
+    "Electrodepot": "electrodepot.es",
+    "Samsung": "samsung.com",
+    "Sony": "sony.es",
+    "Vivo": "vivo.com",
+  };
+  function fallbackStoreUrl(store, phoneName){
+    if(store === "Amazon"){
+      return `https://www.amazon.es/s?k=${encodeURIComponent(phoneName)}`;
+    }
+    const domain = storeDomain[store] || "";
+    const query = domain ? `${phoneName} site:${domain}` : phoneName;
+    return `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+  }
+
   function render(list){
     grid.innerHTML = "";
     list.forEach(p => {
@@ -733,7 +758,7 @@
 
       const ctaLine = p.affiliateUrl
         ? `<a href="${p.affiliateUrl}" target="_blank" rel="nofollow sponsored noopener" class="cta">Ver en ${p.store}</a>`
-        : `<a href="#" class="cta">Ver en ${p.store}</a>`;
+        : `<a href="${fallbackStoreUrl(p.store, p.name)}" target="_blank" rel="nofollow noopener" class="cta">Ver en ${p.store}</a>`;
 
       const thumbHTML = p.stockImage
         ? `<div class="thumb">
