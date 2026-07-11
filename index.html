@@ -562,7 +562,8 @@
     <option value="grade-worst">Grado: peor primero</option>
     <option value="price-asc">Precio: menor a mayor</option>
     <option value="price-desc">Precio: mayor a menor</option>
-    <option value="discount-best">Mayor descuento primero</option>
+    <option value="discount-euros">Mayor descuento en €</option>
+    <option value="discount-percent">Mayor descuento en %</option>
   </select>
 </div>
 
@@ -847,8 +848,10 @@
       list = [...list].sort((a, b) => a.offer - b.offer);
     } else if(activeSort === "price-desc"){
       list = [...list].sort((a, b) => b.offer - a.offer);
-    } else if(activeSort === "discount-best"){
+    } else if(activeSort === "discount-euros"){
       list = [...list].sort((a, b) => (b.retail - b.offer) - (a.retail - a.offer));
+    } else if(activeSort === "discount-percent"){
+      list = [...list].sort((a, b) => ((b.retail - b.offer) / b.retail) - ((a.retail - a.offer) / a.retail));
     }
     render(list);
   }
