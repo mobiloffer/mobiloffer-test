@@ -365,6 +365,15 @@
   }
   .cta:hover{background: var(--surface); color: var(--ink);}
 
+  .cta-disabled{
+    background: transparent;
+    color: var(--silver-dim);
+    border-style: dashed;
+    cursor: default;
+    text-align: center;
+  }
+  .cta-disabled:hover{background: transparent; color: var(--silver-dim);}
+
   .official-line{
     font-size: 0.72rem;
     color: var(--silver-dim);
@@ -592,10 +601,8 @@
   // respaldo para que la web nunca se quede en blanco.
   // ---------------------------------------------------------------------------
   const fallbackPhones = [
-    {name:"iPhone 13", specs:"128GB · Grado A", type:"iphone", brand:"apple", condition:"refurb", grade:"A", retail:449, offer:349, store:"Amazon"},
     {name:"iPhone 12", specs:"64GB · Grado B", type:"iphone", brand:"apple", condition:"refurb", grade:"B", retail:320, offer:229, store:"El Corte Inglés"},
     {name:"iPhone SE (2022)", specs:"64GB · Nuevo", type:"iphone", brand:"apple", condition:"new", grade:"new", retail:349, offer:279, store:"Fnac"},
-    {name:"Samsung Galaxy S22", specs:"128GB · Grado A", type:"android", brand:"samsung", condition:"refurb", grade:"A", retail:420, offer:329, store:"Amazon"},
     {name:"Samsung Galaxy A54", specs:"128GB · Nuevo", type:"android", brand:"samsung", condition:"new", grade:"new", retail:349, offer:299, store:"MediaMarkt", official:{store:"Samsung.com", price:329}},
     {name:"Google Pixel 7", specs:"128GB · Grado B", type:"android", brand:"google", condition:"refurb", grade:"B", retail:380, offer:289, store:"PcComponentes"},
     {name:"iPhone 11", specs:"64GB · Grado C", type:"iphone", brand:"apple", condition:"refurb", grade:"C", retail:280, offer:199, store:"El Corte Inglés"},
@@ -605,7 +612,6 @@
     {name:"Samsung Galaxy S23", specs:"128GB · Grado B", type:"android", brand:"samsung", condition:"refurb", grade:"B", retail:450, offer:359, store:"MediaMarkt"},
     {name:"Samsung Galaxy A34", specs:"128GB · Nuevo", type:"android", brand:"samsung", condition:"new", grade:"new", retail:280, offer:239, store:"Fnac"},
     {name:"Google Pixel 6a", specs:"128GB · Grado B", type:"android", brand:"google", condition:"refurb", grade:"B", retail:300, offer:219, store:"PcComponentes"},
-    {name:"Google Pixel 8", specs:"128GB · Grado A", type:"android", brand:"google", condition:"refurb", grade:"A", retail:470, offer:389, store:"Amazon"},
     {name:"Sony Xperia 10 VI", specs:"128GB · Nuevo", type:"android", brand:"sony", condition:"new", grade:"new", retail:379, offer:319, store:"Sony"},
     {name:"Vivo V29", specs:"128GB · Nuevo", type:"android", brand:"vivo", condition:"new", grade:"new", retail:399, offer:329, store:"Vivo"},
     {name:"LG Velvet", specs:"128GB · Grado C", type:"android", brand:"other", condition:"refurb", grade:"C", retail:180, offer:119, store:"LG"},
@@ -720,8 +726,10 @@
   // Para tiendas sin enlace de afiliado verificado todavía, generamos un enlace de
   // búsqueda funcional de verdad — directo cuando conocemos el patrón de esa tienda,
   // o una búsqueda de Google filtrada a esa tienda cuando no lo tenemos confirmado.
+  // IMPORTANTE: nunca se genera un enlace directo a Amazon aquí — si un producto de
+  // Amazon no tiene "affiliateUrl" verificado con el código de afiliado, su botón se
+  // muestra inactivo en vez de enviar tráfico a Amazon sin comisión.
   const storeDomain = {
-    "Amazon": "amazon.es",
     "MediaMarkt": "mediamarkt.es",
     "El Corte Inglés": "elcorteingles.es",
     "PcComponentes": "pccomponentes.com",
@@ -734,9 +742,6 @@
     "Vivo": "vivo.com",
   };
   function fallbackStoreUrl(store, phoneName){
-    if(store === "Amazon"){
-      return `https://www.amazon.es/s?k=${encodeURIComponent(phoneName)}`;
-    }
     const domain = storeDomain[store] || "";
     const query = domain ? `${phoneName} site:${domain}` : phoneName;
     return `https://www.google.com/search?q=${encodeURIComponent(query)}`;
@@ -756,9 +761,14 @@
         officialLine = `<div class="official-line ${better ? 'better' : ''}">${p.official.store}: ${p.official.price} €${better ? " · más caro ahí" : " · más barato ahí"}</div>`;
       }
 
-      const ctaLine = p.affiliateUrl
-        ? `<a href="${p.affiliateUrl}" target="_blank" rel="nofollow sponsored noopener" class="cta">Ver en ${p.store}</a>`
-        : `<a href="${fallbackStoreUrl(p.store, p.name)}" target="_blank" rel="nofollow noopener" class="cta">Ver en ${p.store}</a>`;
+      let ctaLine;
+      if(p.affiliateUrl){
+        ctaLine = `<a href="${p.affiliateUrl}" target="_blank" rel="nofollow sponsored noopener" class="cta">Ver en ${p.store}</a>`;
+      } else if(p.store === "Amazon"){
+        ctaLine = `<span class="cta cta-disabled" title="Todavía no tenemos un enlace de afiliado verificado para este producto">Enlace pendiente</span>`;
+      } else {
+        ctaLine = `<a href="${fallbackStoreUrl(p.store, p.name)}" target="_blank" rel="nofollow noopener" class="cta">Ver en ${p.store}</a>`;
+      }
 
       const thumbHTML = p.stockImage
         ? `<div class="thumb">
