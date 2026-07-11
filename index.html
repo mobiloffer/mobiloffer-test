@@ -313,6 +313,20 @@
     padding-top: 16px;
     border-top: 2px dashed var(--silver-dim);
   }
+  .avg-price-label{
+    font-size: 0.62rem;
+    color: var(--silver-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin-bottom: 4px;
+  }
+  .price-status{
+    font-size: 0.66rem;
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+  .price-status.verified{ color: var(--good); }
+  .price-status.estimated{ color: var(--silver-dim); font-style: italic; font-weight: 400; }
   .price-line{
     display:flex;
     align-items:center;
@@ -473,6 +487,8 @@
     .card .specs{font-size: 0.68rem; margin-bottom: 12px;}
     .grade-badge{font-size: 0.58rem; padding: 3px 7px;}
     .store-tag{font-size: 0.6rem;}
+    .avg-price-label{font-size: 0.56rem;}
+    .price-status{font-size: 0.58rem; margin-bottom: 8px;}
     .retail{font-size: 0.72rem;}
     .offer{font-size:1rem; padding: 2px 7px;}
     .savings{font-size: 0.64rem; margin-bottom: 10px;}
@@ -604,7 +620,7 @@
     {name:"Samsung Galaxy A54", specs:"128GB · Nuevo", type:"android", brand:"samsung", condition:"new", grade:"new", retail:349, offer:299, store:"MediaMarkt", official:{store:"Samsung.com", price:329}},
     {name:"Google Pixel 7", specs:"128GB · Grado B", type:"android", brand:"google", condition:"refurb", grade:"B", retail:499, offer:314, store:"PcComponentes"},
     {name:"iPhone 11", specs:"64GB · Grado C", type:"iphone", brand:"apple", condition:"refurb", grade:"C", retail:280, offer:199, store:"El Corte Inglés"},
-    {name:"Samsung Galaxy S21 FE", specs:"128GB · Grado A", type:"android", brand:"samsung", condition:"refurb", grade:"A", retail:270, offer:185, store:"Amazon", affiliateUrl:"https://www.amazon.es/dp/B0BQBT2Q9K?tag=mobiloffer-21"},
+    {name:"Samsung Galaxy S21 FE", specs:"128GB · Grado A", type:"android", brand:"samsung", condition:"refurb", grade:"A", retail:270, offer:185, store:"Amazon", verified:true, affiliateUrl:"https://www.amazon.es/dp/B0BQBT2Q9K?tag=mobiloffer-21"},
     {name:"iPhone 14", specs:"128GB · Grado A", type:"iphone", brand:"apple", condition:"refurb", grade:"A", retail:418, offer:395, store:"Amazon", affiliateUrl:"https://www.amazon.es/dp/B0BNLXKVNQ?tag=mobiloffer-21"},
     {name:"iPhone XR", specs:"64GB · Grado C", type:"iphone", brand:"apple", condition:"refurb", grade:"C", retail:220, offer:149, store:"El Corte Inglés"},
     {name:"Samsung Galaxy S23", specs:"128GB · Grado B", type:"android", brand:"samsung", condition:"refurb", grade:"B", retail:449, offer:329, store:"MediaMarkt"},
@@ -777,6 +793,10 @@
            </div>`
         : `<div class="phone-icon">${phoneIconSVG(p.grade, p.brand)}</div>`;
 
+      const priceStatusHTML = p.verified
+        ? `<div class="price-status verified">✓ Precio verificado en vivo</div>`
+        : `<div class="price-status estimated">Precio estimado · verifica antes de comprar</div>`;
+
       const card = document.createElement('div');
       card.className = "card";
       card.innerHTML = `
@@ -788,11 +808,13 @@
         <h3>${p.name}</h3>
         <div class="specs">${p.specs}</div>
         <div class="price-row">
+          <div class="avg-price-label">Precio medio de mercado</div>
           <div class="price-line">
             <span class="retail">${p.retail} €</span>
             <span class="offer" data-target="${p.offer}">0 €</span>
           </div>
           <div class="savings">Ahorras ${savings} € (${pct}%)</div>
+          ${priceStatusHTML}
           ${officialLine}
           ${ctaLine}
         </div>
