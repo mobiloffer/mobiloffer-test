@@ -14,6 +14,12 @@
     {"name":"Samsung Galaxy S23", "specs":"128GB · Grado B", "type":"android", "brand":"samsung", "condition":"refurb", "grade":"B", "retail":450, "offer":359, "store":"MediaMarkt"},
     {"name":"Samsung Galaxy A34", "specs":"128GB · Nuevo", "type":"android", "brand":"samsung", "condition":"new", "grade":"new", "retail":280, "offer":239, "store":"Fnac"},
     {"name":"Google Pixel 6a", "specs":"128GB · Grado B", "type":"android", "brand":"google", "condition":"refurb", "grade":"B", "retail":300, "offer":219, "store":"PcComponentes"},
-    {"name":"Google Pixel 8", "specs":"128GB · Grado A", "type":"android", "brand":"google", "condition":"refurb", "grade":"A", "retail":470, "offer":389, "store":"Amazon"}
+    {"name":"Google Pixel 8", "specs":"128GB · Grado A", "type":"android", "brand":"google", "condition":"refurb", "grade":"A", "retail":470, "offer":389, "store":"Amazon"},
+    {"name":"Sony Xperia 10 VI", "specs":"128GB · Nuevo", "type":"android", "brand":"sony", "condition":"new", "grade":"new", "retail":379, "offer":319, "store":"Sony"},
+    {"name":"Vivo V29", "specs":"128GB · Nuevo", "type":"android", "brand":"vivo", "condition":"new", "grade":"new", "retail":399, "offer":329, "store":"Vivo"},
+    {"name":"LG Velvet", "specs":"128GB · Grado C", "type":"android", "brand":"other", "condition":"refurb", "grade":"C", "retail":180, "offer":119, "store":"LG"},
+    {"name":"iPhone 13 mini", "specs":"128GB · Grado B", "type":"iphone", "brand":"apple", "condition":"refurb", "grade":"B", "retail":349, "offer":259, "store":"Back Market"},
+    {"name":"Samsung Galaxy A14", "specs":"64GB · Nuevo", "type":"android", "brand":"samsung", "condition":"new", "grade":"new", "retail":199, "offer":159, "store":"Phone House"},
+    {"name":"Google Pixel 7a", "specs":"128GB · Grado B", "type":"android", "brand":"google", "condition":"refurb", "grade":"B", "retail":320, "offer":249, "store":"Electrodepot"}
   ]
 }
