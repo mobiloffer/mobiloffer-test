@@ -392,6 +392,51 @@
     gap: 10px;
   }
 
+  /* ---------- HOW IT WORKS ---------- */
+  .how-it-works{
+    padding: 6vh 6vw 7vh;
+    border-top: 3px solid var(--line);
+  }
+  .how-it-works h2{
+    font-family:'Anton', sans-serif;
+    font-weight: 400;
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    text-transform: uppercase;
+    color: var(--ink);
+    max-width: 600px;
+    line-height: 1.05;
+    margin-top: 16px;
+    margin-bottom: 40px;
+  }
+  .steps{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 28px;
+  }
+  .step{
+    border-top: 3px solid var(--ink);
+    padding-top: 14px;
+  }
+  .step-num{
+    font-family:'Anton', sans-serif;
+    font-size: 2rem;
+    color: var(--red);
+    display:block;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .step h3{
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--ink);
+    margin-bottom: 10px;
+  }
+  .step p{
+    font-size: 0.88rem;
+    color: var(--silver-dim);
+    line-height: 1.55;
+  }
+
   @media (max-width: 640px){
     header{padding: 12px 5vw;}
     .logo{font-size: 1.25rem;}
@@ -425,6 +470,12 @@
     .official-line{font-size: 0.62rem;}
     .cta{font-size: 0.7rem; padding: 9px;}
     footer{flex-direction:column; padding: 24px 5vw; font-size: 0.68rem;}
+    .how-it-works{padding: 4vh 5vw 5vh;}
+    .how-it-works h2{font-size: 1.3rem; margin-bottom: 24px;}
+    .steps{gap: 20px;}
+    .step-num{font-size: 1.5rem;}
+    .step h3{font-size: 0.88rem;}
+    .step p{font-size: 0.8rem;}
   }
   @media (max-width: 420px){
     .grid{grid-template-columns: 1fr;}
@@ -493,7 +544,30 @@
 
 <div class="grid" id="grid"></div>
 
-<footer id="como-funciona">
+<section id="como-funciona" class="how-it-works">
+  <span class="eyebrow">Cómo funciona</span>
+  <h2>De la búsqueda a tu bolsillo, sin sorpresas.</h2>
+
+  <div class="steps">
+    <div class="step">
+      <span class="step-num">1</span>
+      <h3>Comparamos precios de verdad</h3>
+      <p>Revisamos el mismo modelo y el mismo estado (nuevo o el grado de reacondicionado) en varias tiendas de España — Amazon, MediaMarkt, El Corte Inglés, PcComponentes, Fnac, Back Market, Phone House, Electrodepot, y las tiendas oficiales de Samsung, Sony y Vivo. Así ves de un vistazo dónde sale mejor, en vez de abrir diez pestañas tú mismo.</p>
+    </div>
+    <div class="step">
+      <span class="step-num">2</span>
+      <h3>Compras directamente en la tienda</h3>
+      <p>MobilOffer no vende nada ni gestiona tu pedido. Al tocar "Ver en [tienda]" te llevamos a la web oficial de esa tienda, donde compras exactamente igual que si hubieras llegado allí por tu cuenta — mismo precio, misma garantía, mismo servicio de atención al cliente.</p>
+    </div>
+    <div class="step">
+      <span class="step-num">3</span>
+      <h3>La tienda nos compensa, no tú</h3>
+      <p>Cuando compras a través de uno de nuestros enlaces, la tienda nos paga una pequeña comisión por haberte referido — es exactamente el mismo precio que verías yendo directo, el coste no sube ni un céntimo para ti. Así es como se mantiene esta web sin cobrarte nada por usarla.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
   <div>MobilOffer — comparador independiente. No representamos ni somos propiedad de ninguna de las tiendas o marcas mencionadas.</div>
   <div>Enlaces de afiliado: podemos ganar una comisión sin coste extra para ti.</div>
 </footer>
