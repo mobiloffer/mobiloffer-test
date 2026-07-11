@@ -92,6 +92,7 @@
     background: var(--red);
     color: #FFFDF7;
     padding: 2px 8px;
+    border-radius: 3px;
     display: inline-block;
     transform: rotate(-2deg);
     margin-left: 2px;
@@ -120,6 +121,7 @@
     margin-bottom: 22px;
     display:inline-block;
     padding: 5px 12px;
+    border-radius: 3px;
     transform: rotate(-1.5deg);
   }
   h1{
@@ -155,6 +157,7 @@
     font-family:'Inter', sans-serif;
     font-size: 0.74rem;
     border: 2px solid var(--line);
+    border-radius: 3px;
     padding: 7px 13px;
     color: var(--ink);
     font-weight: 600;
@@ -179,6 +182,7 @@
     font-size: 0.76rem;
     background: var(--surface);
     border: 2px solid var(--line);
+    border-radius: 3px;
     color: var(--ink);
     padding: 9px 15px;
     font-weight: 600;
@@ -202,6 +206,7 @@
   .card{
     background: var(--surface);
     border: 2.5px solid var(--line);
+    border-radius: 4px;
     padding: 20px;
     display:flex;
     flex-direction:column;
@@ -239,6 +244,7 @@
     padding: 4px 9px;
     letter-spacing: 0.04em;
   }
+  .grade-badge{border-radius: 3px;}
   .grade-badge.A{background: #146B36; color:#FFFDF7; border:2px solid #146B36;}
   .grade-badge.B{background: #A9791E; color:#FFFDF7; border:2px solid #A9791E;}
   .grade-badge.C{background: #C2410C; color:#FFFDF7; border:2px solid #C2410C;}
@@ -259,6 +265,7 @@
     width: 44px;
     height: 44px;
     border: 2px solid var(--line);
+    border-radius: 3px;
     background: var(--surface-2);
     display:flex;
     align-items:center;
@@ -276,6 +283,7 @@
     height: 120px;
     object-fit: cover;
     border: 2px solid var(--line);
+    border-radius: 3px;
     display: block;
     background: var(--surface-2);
   }
@@ -325,6 +333,7 @@
     background: var(--red);
     display: inline-block;
     padding: 3px 10px;
+    border-radius: 3px;
     transform: rotate(-3deg);
     box-shadow: 3px 3px 0 var(--ink);
   }
@@ -351,6 +360,7 @@
     text-transform: uppercase;
     padding: 12px;
     border: 2px solid var(--ink);
+    border-radius: 3px;
     transition: background 0.15s ease, color 0.15s ease;
   }
   .cta:hover{background: var(--surface); color: var(--ink);}
@@ -383,14 +393,38 @@
   }
 
   @media (max-width: 640px){
-    header{padding: 16px 5vw;}
-    nav a{margin-left:16px; font-size:0.78rem;}
-    .hero{padding: 6vh 5vw 4vh;}
-    .filters{padding: 0 5vw 24px;}
-    .grid{padding: 0 5vw 8vh; grid-template-columns: 1fr 1fr; gap:12px;}
-    .card{padding:16px;}
-    .offer{font-size:1.2rem;}
-    footer{flex-direction:column; padding: 30px 5vw;}
+    header{padding: 12px 5vw;}
+    .logo{font-size: 1.25rem;}
+    nav a{margin-left:12px; font-size:0.72rem;}
+    #theme-toggle{padding: 6px 9px !important; font-size: 0.68rem;}
+    .hero{padding: 4vh 5vw 3vh;}
+    .eyebrow{font-size: 0.62rem; padding: 4px 9px; margin-bottom: 14px;}
+    h1{font-size: clamp(1.7rem, 8vw, 2.3rem); line-height: 1.02;}
+    .hero p{font-size: 0.9rem; margin-top: 14px;}
+    .grade-key{gap: 8px; margin-top: 22px;}
+    .grade-pill{font-size: 0.66rem; padding: 5px 10px;}
+    .dot{width:7px; height:7px;}
+    #last-updated{margin-top: 10px !important; font-size: 0.65rem !important;}
+    .filters{padding: 0 5vw 16px; gap: 7px;}
+    #store-filters{padding-top:0 !important;}
+    .filter-btn{font-size: 0.68rem; padding: 6px 11px;}
+    #sort-select{margin-left:0 !important; width: 100%;}
+    .grid{padding: 0 5vw 8vh; grid-template-columns: 1fr 1fr; gap:10px;}
+    .card{padding:12px;}
+    .phone-icon, .thumb .stock-img{margin-bottom: 9px;}
+    .thumb .stock-img{height: 80px;}
+    .phone-icon{width: 34px; height: 34px;}
+    .phone-icon svg{width: 22px; height: 22px;}
+    .card h3{font-size: 0.85rem;}
+    .card .specs{font-size: 0.68rem; margin-bottom: 12px;}
+    .grade-badge{font-size: 0.58rem; padding: 3px 7px;}
+    .store-tag{font-size: 0.6rem;}
+    .retail{font-size: 0.72rem;}
+    .offer{font-size:1rem; padding: 2px 7px;}
+    .savings{font-size: 0.64rem; margin-bottom: 10px;}
+    .official-line{font-size: 0.62rem;}
+    .cta{font-size: 0.7rem; padding: 9px;}
+    footer{flex-direction:column; padding: 24px 5vw; font-size: 0.68rem;}
   }
   @media (max-width: 420px){
     .grid{grid-template-columns: 1fr;}
@@ -423,8 +457,12 @@
 
 <div class="filters" id="catalogo">
   <button class="filter-btn active" data-filter="all">Todos</button>
-  <button class="filter-btn" data-filter="iphone">iPhone</button>
-  <button class="filter-btn" data-filter="android">Android</button>
+  <button class="filter-btn" data-filter="apple">iPhone</button>
+  <button class="filter-btn" data-filter="samsung">Samsung</button>
+  <button class="filter-btn" data-filter="google">Google</button>
+  <button class="filter-btn" data-filter="sony">Sony</button>
+  <button class="filter-btn" data-filter="vivo">Vivo</button>
+  <button class="filter-btn" data-filter="other">LG</button>
   <button class="filter-btn" data-filter="new">Nuevo</button>
   <button class="filter-btn" data-filter="refurb">Reacondicionado</button>
 </div>
@@ -447,6 +485,9 @@
     <option value="default">Orden: por defecto</option>
     <option value="grade-best">Grado: mejor primero</option>
     <option value="grade-worst">Grado: peor primero</option>
+    <option value="price-asc">Precio: menor a mayor</option>
+    <option value="price-desc">Precio: mayor a menor</option>
+    <option value="discount-best">Mayor descuento primero</option>
   </select>
 </div>
 
@@ -636,10 +677,10 @@
 
   function applyFilters(){
     let list = phones;
-    if(activeTypeFilter === "iphone" || activeTypeFilter === "android"){
-      list = list.filter(p => p.type === activeTypeFilter);
-    } else if(activeTypeFilter === "new" || activeTypeFilter === "refurb"){
+    if(activeTypeFilter === "new" || activeTypeFilter === "refurb"){
       list = list.filter(p => p.condition === activeTypeFilter);
+    } else if(activeTypeFilter !== "all"){
+      list = list.filter(p => p.brand === activeTypeFilter);
     }
     if(activeStoreFilter !== "all"){
       list = list.filter(p => p.store === activeStoreFilter);
@@ -648,6 +689,12 @@
       list = [...list].sort((a, b) => gradeOrder[a.grade] - gradeOrder[b.grade]);
     } else if(activeSort === "grade-worst"){
       list = [...list].sort((a, b) => gradeOrder[b.grade] - gradeOrder[a.grade]);
+    } else if(activeSort === "price-asc"){
+      list = [...list].sort((a, b) => a.offer - b.offer);
+    } else if(activeSort === "price-desc"){
+      list = [...list].sort((a, b) => b.offer - a.offer);
+    } else if(activeSort === "discount-best"){
+      list = [...list].sort((a, b) => (b.retail - b.offer) - (a.retail - a.offer));
     }
     render(list);
   }
